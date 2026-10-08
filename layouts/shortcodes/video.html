@@ -1,0 +1,11 @@
+{{ $src := .Get "src" }}
+{{ $video := .Page.Resources.GetMatch $src }}
+
+{{ with $video }}
+<video controls preload="metadata" playsinline>
+    <source src="{{ .RelPermalink }}" type="video/mp4">
+    Your browser does not support video playback.
+</video>
+{{ else }}
+<p>Video not found: {{ $src }}</p>
+{{ end }}

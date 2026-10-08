@@ -1,0 +1,32 @@
+
+{{ define "main" }}
+
+<section class="about-page">
+
+    <div class="profile-header">
+
+        <div class="profile-avatar">
+            {{ $image := .Params.profileImage }}
+
+            {{ if $image }}
+                <img src="{{ $image | relURL }}"
+                     alt="Profile"
+                     onerror="this.style.display='none'">
+            {{ end }}
+        </div>
+
+        <div class="profile-info">
+            <h1>{{ .Params.name }}</h1>
+            <p class="profile-role">{{ .Params.role }}</p>
+            <p>{{ .Params.subtitle }}</p>
+        </div>
+
+    </div>
+
+    <div class="about-content">
+        {{ .Content }}
+    </div>
+
+</section>
+
+{{ end }}

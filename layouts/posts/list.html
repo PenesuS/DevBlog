@@ -1,0 +1,56 @@
+{{ define "main" }}
+
+<section class="post-list">
+
+    <h2>Development Logs</h2>
+
+    <p>
+        Documenting my projects, experiments,
+        and technical art workflows.
+    </p>
+
+    <div class="post-grid">
+
+        {{ range .Pages.ByDate.Reverse }}
+
+        <article class="post-card">
+
+            <a href="{{ .RelPermalink }}" class="post-thumbnail">
+                {{ with .Resources.GetMatch "thumbnail.*" }}
+                    <img src="{{ .RelPermalink }}" alt="Post Thumbnail" loading="lazy">
+                {{ else }}
+                    <div class="thumbnail-placeholder">
+                        No Preview
+                    </div>
+                {{ end }}
+            </a>
+
+            <div class="post-card-body">
+
+                <time datetime="{{ .Date.Format "2006-01-02" }}">
+                    {{ .Date.Format "January 2, 2006" }}
+                </time>
+
+                <h3>
+                    <a href="{{ .RelPermalink }}">
+                        {{ .Title }}
+                    </a>
+                </h3>
+
+                <p>{{ .Description }}</p>
+
+                <a class="read-more" href="{{ .RelPermalink }}">
+                    Read More →
+                </a>
+
+            </div>
+
+        </article>
+
+        {{ end }}
+
+    </div>
+
+</section>
+
+{{ end }}

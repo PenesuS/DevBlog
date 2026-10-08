@@ -1,0 +1,27 @@
+{{ define "main" }}
+
+<article class="post-detail">
+
+    <header class="post-detail-header">
+        <h1>{{ .Title }}</h1>
+
+        <time datetime="{{ .Date.Format "2006-01-02" }}">
+            {{ .Date.Format "January 2, 2006" }}
+        </time>
+
+        <p>{{ .Description }}</p>
+    </header>
+
+    <div class="post-content">
+        {{ .Content }}
+    </div>
+
+    <div class="post-back">
+        <a href="{{ "posts/" | relURL }}">
+            ← Back to Development Logs
+        </a>
+    </div>
+
+</article>
+
+{{ end }}

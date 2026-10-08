@@ -1,0 +1,51 @@
+{{ define "main" }}
+
+<section class="post-list">
+
+    <h2>Projects</h2>
+
+    <p>
+        Selected technical art and game development projects.
+    </p>
+
+    <div class="post-grid">
+
+        {{ range .Pages.ByDate.Reverse }}
+
+        <article class="post-card">
+
+            <a href="{{ .RelPermalink }}" class="post-thumbnail">
+                {{ with .Resources.GetMatch "thumbnail.*" }}
+                    <img src="{{ .RelPermalink }}" alt="Project Thumbnail" loading="lazy">
+                {{ else }}
+                    <div class="thumbnail-placeholder">
+                        No Preview
+                    </div>
+                {{ end }}
+            </a>
+
+            <div class="post-card-body">
+
+                <h3>
+                    <a href="{{ .RelPermalink }}">
+                        {{ .Title }}
+                    </a>
+                </h3>
+
+                <p>{{ .Description }}</p>
+
+                <a class="read-more" href="{{ .RelPermalink }}">
+                    View Project →
+                </a>
+
+            </div>
+
+        </article>
+
+        {{ end }}
+
+    </div>
+
+</section>
+
+{{ end }}

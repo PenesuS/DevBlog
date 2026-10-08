@@ -1,0 +1,71 @@
+{{ define "main" }}
+
+<section class="home-intro">
+
+    <h2>Technical Art & Game Development</h2>
+
+    <p>
+        Welcome to my development blog.
+        Here I document technical art experiments,
+        game development projects, and workflows.
+    </p>
+
+</section>
+
+<section class="recent-posts">
+
+    <h2>Recent Development Logs</h2>
+
+    <div class="post-grid">
+
+        {{ range first 6 (where .Site.RegularPages "Section" "posts").ByDate.Reverse }}
+
+        <article class="post-card">
+
+            <a href="{{ .RelPermalink }}" class="post-thumbnail">
+
+                {{ with .Resources.GetMatch "thumbnail.*" }}
+                    <img src="{{ .RelPermalink }}" alt="Post Thumbnail" loading="lazy">
+                {{ else }}
+                    <div class="thumbnail-placeholder">
+                        No Preview
+                    </div>
+                {{ end }}
+
+            </a>
+
+            <div class="post-card-body">
+
+                <time datetime="{{ .Date.Format "2006-01-02" }}">
+                    {{ .Date.Format "January 2, 2006" }}
+                </time>
+
+                <h3>
+                    <a href="{{ .RelPermalink }}">
+                        {{ .Title }}
+                    </a>
+                </h3>
+
+                <p>{{ .Description }}</p>
+
+                <a class="read-more" href="{{ .RelPermalink }}">
+                    Read More →
+                </a>
+
+            </div>
+
+        </article>
+
+        {{ end }}
+
+    </div>
+
+    <div class="view-all">
+        <a href="{{ "posts/" | relURL }}">
+            View All Development Logs →
+        </a>
+    </div>
+
+</section>
+
+{{ end }}
