@@ -1,5 +1,5 @@
 ---
-title: CMS Project Test
+title: Projects
 date: 2026-10-09T10:43:00.000-04:00
 draft: false
 description: Testing project publishing and image uploads.
