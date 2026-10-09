@@ -1,10 +1,10 @@
 ---
-title: "About"
+title: About Me
 draft: false
-name: "Your Name"
-role: "Technical Artist / Environment Artist"
-subtitle: "Game Development Portfolio"
-profileImage: "/images/profile.jpg"
+name: Suhyeok Lee (James)
+role: 3D Environment Artist (Entry-Level)
+subtitle: Game Development Portfolio
+profileImage: /images/profile.jpg
 ---
 
 ## About Me
