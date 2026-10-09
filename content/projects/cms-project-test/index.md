@@ -1,17 +1,23 @@
 ---
-title: CMS Project Test
-date: 2026-10-09T12:33:00.000-04:00
+title: "3D Environment : The Empire Palace"
+date: 2018-06-01T00:00:00.000-04:00
 draft: false
-description: asdf
+description: This is my second 3D environment art made in 2018
 tags:
-  - Test
-thumbnail: 스크린샷-2025-09-12-170840.png
+  - UnrealEngine4
+  - 3dsMax
+  - SubstancePainter
+  - Zbrush
+  - Photoshop
+thumbnail: 0-0.png
 cmsType: project
 ---
-asdfafdsasdf
+![](1.png)
 
-![](foresthouse.png)
+![](2.png)
 
-asdfasdf
+![](3.png)
 
-asdf
+![](4.png)
+
+![](https://youtu.be/FiMOdJZ3SQ0)
