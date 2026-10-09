@@ -16,13 +16,11 @@
         {{ $thumbnail := "" }}
 
         {{ with $project.Params.thumbnail }}
-
             {{ $imageName := path.Base . }}
 
             {{ with $project.Resources.GetMatch $imageName }}
                 {{ $thumbnail = .RelPermalink }}
             {{ end }}
-
         {{ end }}
 
         {{ if not $thumbnail }}
@@ -58,6 +56,14 @@
                 </h3>
 
                 <p>{{ $project.Description }}</p>
+
+                {{ with $project.Params.tags }}
+                    <div class="project-tags">
+                        {{ range . }}
+                            <span class="project-tag">{{ . }}</span>
+                        {{ end }}
+                    </div>
+                {{ end }}
 
                 <a class="read-more" href="{{ $project.RelPermalink }}">
                     View Project →

@@ -10,6 +10,14 @@
         </time>
 
         <p>{{ .Description }}</p>
+
+        {{ with .Params.tags }}
+            <div class="project-tags">
+                {{ range . }}
+                    <span class="project-tag">{{ . }}</span>
+                {{ end }}
+            </div>
+        {{ end }}
     </div>
 
     <div class="post-content">

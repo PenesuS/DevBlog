@@ -2,15 +2,29 @@
 
 <article class="post-detail">
 
-    <header class="post-detail-header">
+    <div class="post-detail-header">
+
+        <div class="log-meta">
+            <span class="log-type">DEV LOG</span>
+
+            <time datetime="{{ .Date.Format "2006-01-02" }}">
+                {{ .Date.Format "January 2, 2006" }}
+            </time>
+        </div>
+
         <h1>{{ .Title }}</h1>
 
-        <time datetime="{{ .Date.Format "2006-01-02" }}">
-            {{ .Date.Format "January 2, 2006" }}
-        </time>
-
         <p>{{ .Description }}</p>
-    </header>
+
+        {{ with .Params.tags }}
+            <div class="project-tags">
+                {{ range . }}
+                    <span class="project-tag">{{ . }}</span>
+                {{ end }}
+            </div>
+        {{ end }}
+
+    </div>
 
     <div class="post-content">
         {{ .Content }}

@@ -1,98 +1,174 @@
 {{ define "main" }}
 
 <section class="home-intro">
+    <p class="home-eyebrow">TECHNICAL ARTIST · REALTIME GRAPHICS</p>
 
-    <h2>Technical Art & Game Development</h2>
+    <h2>Technical Art &amp; Game Development</h2>
 
-    <p>
-        Welcome to my development blog.
-        Here I document technical art experiments,
-        game development projects, and workflows.
+    <p class="home-description">
+        Exploring realtime shaders, procedural materials,
+        technical art tools, and game development workflows.
     </p>
 
+    <div class="home-actions">
+        <a class="home-primary-link" href="{{ "projects/" | relURL }}">
+            Explore Projects →
+        </a>
+        <a class="home-secondary-link" href="{{ "about/" | relURL }}">
+            About Me
+        </a>
+    </div>
+</section>
+
+<section class="home-projects">
+    <div class="home-section-heading">
+        <div>
+            <p class="home-section-label">SELECTED WORK</p>
+            <h2>Featured Projects</h2>
+        </div>
+        <a href="{{ "projects/" | relURL }}">View All Projects →</a>
+    </div>
+
+    {{ $projects := where .Site.RegularPages "Section" "projects" }}
+    {{ $projects = where $projects "Draft" false }}
+    {{ $projects = first 4 $projects.ByDate.Reverse }}
+
+    {{ if $projects }}
+    <div class="post-grid">
+        {{ range $projects }}
+            {{ $post := . }}
+            {{ $thumbnail := "" }}
+
+            {{ with $post.Params.thumbnail }}
+                {{ $imageName := path.Base . }}
+                {{ with $post.Resources.GetMatch $imageName }}
+                    {{ $thumbnail = .RelPermalink }}
+                {{ end }}
+            {{ else }}
+                {{ with $post.Resources.GetMatch "thumbnail.*" }}
+                    {{ $thumbnail = .RelPermalink }}
+                {{ end }}
+            {{ end }}
+
+            <article class="post-card">
+                <a href="{{ $post.RelPermalink }}" class="post-thumbnail">
+                    {{ if $thumbnail }}
+                        <img
+                            src="{{ $thumbnail }}"
+                            alt="{{ $post.Title }}"
+                            loading="lazy"
+                        >
+                    {{ else }}
+                        <div class="thumbnail-placeholder">No Preview</div>
+                    {{ end }}
+                </a>
+
+                <div class="post-card-body">
+                    <p class="home-card-type">PROJECT</p>
+
+                    <h3>
+                        <a href="{{ $post.RelPermalink }}">{{ $post.Title }}</a>
+                    </h3>
+
+                    <p>{{ $post.Description }}</p>
+
+                    {{ with $post.Params.tags }}
+                        <div class="project-tags">
+                            {{ range . }}
+                                <span class="project-tag">{{ . }}</span>
+                            {{ end }}
+                        </div>
+                    {{ end }}
+
+                    <a class="read-more" href="{{ $post.RelPermalink }}">
+                        View Project →
+                    </a>
+                </div>
+            </article>
+        {{ end }}
+    </div>
+    {{ else }}
+        <p>Projects will be featured here soon.</p>
+    {{ end }}
 </section>
 
 <section class="recent-posts">
+    <div class="home-section-heading">
+        <div>
+            <p class="home-section-label">BEHIND THE WORK</p>
+            <h2>Recent Development Logs</h2>
+        </div>
+        <a href="{{ "posts/" | relURL }}">View All Logs →</a>
+    </div>
 
-    <h2>Recent Development Logs</h2>
+    {{ $posts := where .Site.RegularPages "Section" "posts" }}
+    {{ $posts = first 3 $posts.ByDate.Reverse }}
 
+    {{ if $posts }}
     <div class="post-grid">
+        {{ range $posts }}
+            {{ $post := . }}
+            {{ $thumbnail := "" }}
 
-        {{ range first 6 ((where .Site.RegularPages "Section" "posts").ByDate.Reverse) }}
-
-        {{ $post := . }}
-        {{ $thumbnail := "" }}
-
-        {{ with $post.Params.thumbnail }}
-
-            {{ $imageName := path.Base . }}
-
-            {{ with $post.Resources.GetMatch $imageName }}
-                {{ $thumbnail = .RelPermalink }}
-            {{ end }}
-
-        {{ else }}
-
-            {{ with $post.Resources.GetMatch "thumbnail.*" }}
-                {{ $thumbnail = .RelPermalink }}
-            {{ end }}
-
-        {{ end }}
-
-        <article class="post-card">
-
-            <a href="{{ $post.RelPermalink }}" class="post-thumbnail">
-
-                {{ if $thumbnail }}
-
-                    <img
-                        src="{{ $thumbnail }}"
-                        alt="{{ $post.Title }}"
-                        loading="lazy"
-                    >
-
-                {{ else }}
-
-                    <div class="thumbnail-placeholder">
-                        No Preview
-                    </div>
-
+            {{ with $post.Params.thumbnail }}
+                {{ $imageName := path.Base . }}
+                {{ with $post.Resources.GetMatch $imageName }}
+                    {{ $thumbnail = .RelPermalink }}
                 {{ end }}
+            {{ else }}
+                {{ with $post.Resources.GetMatch "thumbnail.*" }}
+                    {{ $thumbnail = .RelPermalink }}
+                {{ end }}
+            {{ end }}
 
-            </a>
-
-            <div class="post-card-body">
-
-                <time datetime="{{ $post.Date.Format "2006-01-02" }}">
-                    {{ $post.Date.Format "January 2, 2006" }}
-                </time>
-
-                <h3>
-                    <a href="{{ $post.RelPermalink }}">
-                        {{ $post.Title }}
-                    </a>
-                </h3>
-
-                <p>{{ $post.Description }}</p>
-
-                <a class="read-more" href="{{ $post.RelPermalink }}">
-                    Read More →
+            <article class="post-card">
+                <a href="{{ $post.RelPermalink }}" class="post-thumbnail">
+                    {{ if $thumbnail }}
+                        <img
+                            src="{{ $thumbnail }}"
+                            alt="{{ $post.Title }}"
+                            loading="lazy"
+                        >
+                    {{ else }}
+                        <div class="thumbnail-placeholder">No Preview</div>
+                    {{ end }}
                 </a>
 
-            </div>
+                <div class="post-card-body">
 
-        </article>
+                    <div class="log-meta">
+                        <span class="log-type">DEV LOG</span>
 
+                        <time datetime="{{ $post.Date.Format "2006-01-02" }}">
+                            {{ $post.Date.Format "January 2, 2006" }}
+                        </time>
+                    </div>
+
+                    <h3>
+                        <a href="{{ $post.RelPermalink }}">{{ $post.Title }}</a>
+                    </h3>
+
+                    <p>{{ $post.Description }}</p>
+
+                    {{ with $post.Params.tags }}
+                        <div class="project-tags">
+                            {{ range . }}
+                                <span class="project-tag">{{ . }}</span>
+                            {{ end }}
+                        </div>
+    {{ end }}
+
+    <a class="read-more" href="{{ $post.RelPermalink }}">
+        Read Log →
+    </a>
+
+</div>
+            </article>
         {{ end }}
-
     </div>
-
-    <div class="view-all">
-        <a href="{{ "posts/" | relURL }}">
-            View All Development Logs →
-        </a>
-    </div>
-
+    {{ else }}
+        <p>Development logs will appear here soon.</p>
+    {{ end }}
 </section>
 
 {{ end }}
