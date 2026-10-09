@@ -1,8 +1,20 @@
 {{ $src := .Get "src" }}
 {{ $video := .Page.Resources.GetMatch $src }}
 
+{{ $autoplay := eq (.Get "autoplay" | default "false") "true" }}
+{{ $loop := eq (.Get "loop" | default "false") "true" }}
+{{ $muted := eq (.Get "muted" | default "false") "true" }}
+{{ $controls := ne (.Get "controls" | default "true") "false" }}
+
 {{ with $video }}
-<video controls preload="metadata" playsinline>
+<video
+    {{ if $autoplay }}autoplay{{ end }}
+    {{ if $loop }}loop{{ end }}
+    {{ if $muted }}muted{{ end }}
+    {{ if $controls }}controls{{ end }}
+    playsinline
+    preload="metadata"
+>
     <source src="{{ .RelPermalink }}" type="video/mp4">
     Your browser does not support video playback.
 </video>
