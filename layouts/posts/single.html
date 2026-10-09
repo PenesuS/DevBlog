@@ -14,7 +14,9 @@
 
         <h1>{{ .Title }}</h1>
 
-        <p>{{ .Description }}</p>
+        {{ with .Description }}
+            <p>{{ . }}</p>
+        {{ end }}
 
         {{ with .Params.tags }}
             <div class="project-tags">
@@ -25,6 +27,20 @@
         {{ end }}
 
     </div>
+
+    {{ with .Params.thumbnail }}
+        {{ $thumbnail := $.Resources.GetMatch . }}
+
+        {{ with $thumbnail }}
+            <div class="project-detail-cover">
+                <img
+                    src="{{ .RelPermalink }}"
+                    alt="{{ $.Title }}"
+                    loading="eager"
+                >
+            </div>
+        {{ end }}
+    {{ end }}
 
     <div class="post-content">
         {{ .Content }}
