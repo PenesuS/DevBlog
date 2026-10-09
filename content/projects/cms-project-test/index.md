@@ -22,4 +22,4 @@ cmsType: project
 
 ![]()
 
-[The Empire Palace](https://www.youtube.com/watch?v=FiMOdJZ3SQ0)
+<https://www.youtube.com/watch?v=FiMOdJZ3SQ0>
