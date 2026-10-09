@@ -23,6 +23,10 @@
 
             {{ with $post.Resources.GetMatch $imageName }}
                 {{ $thumbnail = .RelPermalink }}
+            {{ else }}
+                {{ with $post.Resources.GetMatch (printf "*%s" $imageName) }}
+                    {{ $thumbnail = .RelPermalink }}
+                {{ end }}
             {{ end }}
 
         {{ else }}

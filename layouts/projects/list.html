@@ -12,29 +12,54 @@
 
         {{ range .Pages.ByDate.Reverse }}
 
+        {{ $project := . }}
+        {{ $thumbnail := "" }}
+
+        {{ with $project.Params.thumbnail }}
+
+            {{ $imageName := path.Base . }}
+
+            {{ with $project.Resources.GetMatch $imageName }}
+                {{ $thumbnail = .RelPermalink }}
+            {{ end }}
+
+        {{ end }}
+
+        {{ if not $thumbnail }}
+            {{ with $project.Resources.GetMatch "thumbnail.*" }}
+                {{ $thumbnail = .RelPermalink }}
+            {{ end }}
+        {{ end }}
+
         <article class="post-card">
 
-            <a href="{{ .RelPermalink }}" class="post-thumbnail">
-                {{ with .Resources.GetMatch "thumbnail.*" }}
-                    <img src="{{ .RelPermalink }}" alt="Project Thumbnail" loading="lazy">
+            <a href="{{ $project.RelPermalink }}" class="post-thumbnail">
+
+                {{ if $thumbnail }}
+                    <img
+                        src="{{ $thumbnail }}"
+                        alt="{{ $project.Title }}"
+                        loading="lazy"
+                    >
                 {{ else }}
                     <div class="thumbnail-placeholder">
                         No Preview
                     </div>
                 {{ end }}
+
             </a>
 
             <div class="post-card-body">
 
                 <h3>
-                    <a href="{{ .RelPermalink }}">
-                        {{ .Title }}
+                    <a href="{{ $project.RelPermalink }}">
+                        {{ $project.Title }}
                     </a>
                 </h3>
 
-                <p>{{ .Description }}</p>
+                <p>{{ $project.Description }}</p>
 
-                <a class="read-more" href="{{ .RelPermalink }}">
+                <a class="read-more" href="{{ $project.RelPermalink }}">
                     View Project →
                 </a>
 
@@ -48,4 +73,4 @@
 
 </section>
 
-{{ end }}d
+{{ end }}
