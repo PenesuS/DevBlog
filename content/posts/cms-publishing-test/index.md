@@ -5,5 +5,8 @@ draft: false
 description: Testing the Decap CMS publishing workflow.
 tags:
   - Test
+thumbnail: 스크린샷-2026-10-04-223839.png
 ---
 This post was created using Decap CMS
+
+![](스크린샷-2026-09-28-142311.png)
