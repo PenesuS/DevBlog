@@ -4,7 +4,7 @@ draft: false
 name: Suhyeok Lee (James)
 role: 3D Environment Artist (Entry-Level)
 subtitle: Game Development Portfolio
-profileImage: /images/profile.jpg
+profileImage: /uploads/profile.png
 ---
 ## About Me
 
