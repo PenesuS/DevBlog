@@ -1,7 +1,9 @@
 backend:
   name: github
-  repo: YOUR_GITHUB_USERNAME/DevBlog
+  repo: PenesuS/DevBlog
   branch: main
+  base_url: https://suhyeoklee0817.pages.dev
+  auth_endpoint: api/auth
 
 media_folder: "static/uploads"
 public_folder: "/uploads"
