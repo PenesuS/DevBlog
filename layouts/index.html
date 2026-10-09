@@ -1,13 +1,18 @@
 {{ define "main" }}
 
-<section class="home-intro">
-    <p class="home-eyebrow">TECHNICAL ARTIST · REALTIME GRAPHICS</p>
+{{ $home := .Site.GetPage "page" "home" }}
 
-    <h2>Technical Art &amp; Game Development</h2>
+<section class="home-intro">
+    <p class="home-eyebrow">
+        {{ with $home }}{{ .Params.eyebrow }}{{ end }}
+    </p>
+
+    <h2>
+        {{ with $home }}{{ .Params.heading }}{{ end }}
+    </h2>
 
     <p class="home-description">
-        Exploring realtime shaders, procedural materials,
-        technical art tools, and game development workflows.
+        {{ with $home }}{{ .Params.description }}{{ end }}
     </p>
 
     <div class="home-actions">
