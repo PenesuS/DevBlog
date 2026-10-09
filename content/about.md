@@ -29,7 +29,7 @@ a few technical art workflows, and environment development.
 
 ## Contact
 
-* Email: your-email@example.com
+* Email: vpfn1234@gmail.com
 * GitHub: https://github.com/
 
 ```
