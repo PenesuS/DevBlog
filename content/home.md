@@ -1,6 +1,7 @@
 ---
-title: "Home"
-eyebrow: "TECHNICAL ARTIST · REALTIME GRAPHICS"
-heading: "Technical Art & Game Development"
-description: "Exploring realtime shaders, procedural materials, technical art tools, and game development workflows."
+title: Home
+eyebrow: 3D ENVIRONMENT ARTIST · REALTIME GRAPHICS
+heading: 3D Environment Art & Game Development
+description: Creating realtime shaders, procedural materials, and technical art
+  tools for game development.
 ---
