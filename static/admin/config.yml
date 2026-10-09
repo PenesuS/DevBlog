@@ -15,6 +15,9 @@ collections:
     folder: "content/posts"
     create: true
     path: "{{slug}}/index"
+    filter:
+      field: cmsType
+      value: post
     media_folder: ""
     public_folder: ""
     fields:
@@ -25,6 +28,8 @@ collections:
       - { label: "Tags", name: "tags", widget: "list", required: false }
       - { label: "Thumbnail", name: "thumbnail", widget: "image", required: false }
       - { label: "Body", name: "body", widget: "markdown" }
+      
+      - { label: "Content Type", name: "cmsType", widget: "hidden", default: "post" }
 
   - name: "projects"
     label: "Projects"
@@ -32,6 +37,9 @@ collections:
     folder: "content/projects"
     create: true
     path: "{{slug}}/index"
+    filter:
+      field: cmsType
+      value: project
     media_folder: ""
     public_folder: ""
     fields:
@@ -42,6 +50,7 @@ collections:
       - { label: "Tags", name: "tags", widget: "list", required: false }
       - { label: "Thumbnail", name: "thumbnail", widget: "image", required: false }
       - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Content Type", name: "cmsType", widget: "hidden", default: "project" }
 
   - name: "pages"
     label: "Pages"

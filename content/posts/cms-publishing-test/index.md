@@ -1,5 +1,6 @@
 ---
 title: CMS Publishing Test
+cmsType: post
 date: 2026-10-09T09:42:00.000-04:00
 draft: false
 description: Testing the Decap CMS publishing workflow.

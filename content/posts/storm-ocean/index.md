@@ -1,5 +1,6 @@
 ---
 title: "Storm Ocean Shader Development"
+cmsType: post
 date: 2026-10-08
 draft: false
 description: "Development of a large-scale storm ocean shader using Unreal Engine and HLSL."

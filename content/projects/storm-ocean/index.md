@@ -1,5 +1,6 @@
 ---
 title: "Storm Ocean Shader"
+cmsType: project
 date: 2026-10-08
 draft: false
 description: "A real-time storm ocean shader developed with Unreal Engine and HLSL."
