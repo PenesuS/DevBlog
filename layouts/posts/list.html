@@ -1,3 +1,4 @@
+
 {{ define "main" }}
 
 <section class="post-list">
@@ -13,33 +14,62 @@
 
         {{ range .Pages.ByDate.Reverse }}
 
+        {{ $post := . }}
+        {{ $thumbnail := "" }}
+
+        {{ with $post.Params.thumbnail }}
+
+            {{ $imageName := path.Base . }}
+
+            {{ with $post.Resources.GetMatch $imageName }}
+                {{ $thumbnail = .RelPermalink }}
+            {{ end }}
+
+        {{ else }}
+
+            {{ with $post.Resources.GetMatch "thumbnail.*" }}
+                {{ $thumbnail = .RelPermalink }}
+            {{ end }}
+
+        {{ end }}
+
         <article class="post-card">
 
-            <a href="{{ .RelPermalink }}" class="post-thumbnail">
-                {{ with .Resources.GetMatch "thumbnail.*" }}
-                    <img src="{{ .RelPermalink }}" alt="Post Thumbnail" loading="lazy">
+            <a href="{{ $post.RelPermalink }}" class="post-thumbnail">
+
+                {{ if $thumbnail }}
+
+                    <img
+                        src="{{ $thumbnail }}"
+                        alt="{{ $post.Title }}"
+                        loading="lazy"
+                    >
+
                 {{ else }}
+
                     <div class="thumbnail-placeholder">
                         No Preview
                     </div>
+
                 {{ end }}
+
             </a>
 
             <div class="post-card-body">
 
-                <time datetime="{{ .Date.Format "2006-01-02" }}">
-                    {{ .Date.Format "January 2, 2006" }}
+                <time datetime="{{ $post.Date.Format "2006-01-02" }}">
+                    {{ $post.Date.Format "January 2, 2006" }}
                 </time>
 
                 <h3>
-                    <a href="{{ .RelPermalink }}">
-                        {{ .Title }}
+                    <a href="{{ $post.RelPermalink }}">
+                        {{ $post.Title }}
                     </a>
                 </h3>
 
-                <p>{{ .Description }}</p>
+                <p>{{ $post.Description }}</p>
 
-                <a class="read-more" href="{{ .RelPermalink }}">
+                <a class="read-more" href="{{ $post.RelPermalink }}">
                     Read More →
                 </a>
 
