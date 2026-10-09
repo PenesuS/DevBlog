@@ -20,8 +20,6 @@ cmsType: project
 
 ![](4.png)
 
-
-
 ![]()
 
-https://youtu.be/FiMOdJZ3SQ0
+[The Empire Palace](https://www.youtube.com/watch?v=FiMOdJZ3SQ0)
