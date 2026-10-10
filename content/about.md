@@ -31,6 +31,8 @@ a few technical art workflows, and environment development.
 
 * Email: vpfn1234@gmail.com
 * GitHub: https://github.com/PenesuS
+* LinkedIn: www.linkedin.com/in/suhyeok-lee-923980328
+* Artstation: https://suhyeoklee0817.artstation.com/
 
 ```
 
