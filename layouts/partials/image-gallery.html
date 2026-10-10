@@ -1,8 +1,7 @@
 {{ with .Params.gallery }}
     <div class="image-gallery">
         {{ range . }}
-            {{ $imagePath := . }}
-            {{ $image := $.Resources.GetMatch $imagePath }}
+            {{ $image := $.Resources.GetMatch . }}
 
             {{ with $image }}
                 <img

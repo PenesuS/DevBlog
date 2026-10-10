@@ -42,6 +42,8 @@
         {{ .Content }}
     </div>
 
+    {{ partial "image-gallery.html" . }}
+
     <div class="post-back">
         <a href="{{ "projects/" | relURL }}">
             ← Back to Projects
