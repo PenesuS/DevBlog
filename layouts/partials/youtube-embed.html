@@ -1,0 +1,33 @@
+{{ $url := .Params.youtubeUrl | default "" }}
+{{ $videoID := "" }}
+
+{{ if $url }}
+    {{ $parsed := urls.Parse $url }}
+    {{ $host := lower $parsed.Hostname }}
+
+    {{ if or (eq $host "youtu.be") (eq $host "www.youtu.be") }}
+        {{ $videoID = strings.TrimPrefix "/" $parsed.Path }}
+
+    {{ else if or (eq $host "youtube.com") (eq $host "www.youtube.com") (eq $host "m.youtube.com") }}
+        {{ if eq $parsed.Path "/watch" }}
+            {{ $videoID = $parsed.Query.Get "v" }}
+        {{ else if hasPrefix $parsed.Path "/shorts/" }}
+            {{ $videoID = strings.TrimPrefix "/shorts/" $parsed.Path }}
+        {{ else if hasPrefix $parsed.Path "/embed/" }}
+            {{ $videoID = strings.TrimPrefix "/embed/" $parsed.Path }}
+        {{ end }}
+    {{ end }}
+{{ end }}
+
+{{ if $videoID }}
+    <div class="youtube-embed">
+        <iframe
+            src="https://www.youtube-nocookie.com/embed/{{ $videoID | urlquery }}"
+            title="YouTube video player"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen>
+        </iframe>
+    </div>
+{{ end }}

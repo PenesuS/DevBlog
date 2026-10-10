@@ -27,6 +27,7 @@ collections:
       - { label: "Description", name: "description", widget: "text" }
       - { label: "Tags", name: "tags", widget: "list", required: false }
       - { label: "Thumbnail", name: "thumbnail", widget: "image", required: false }
+      - { label: "YouTube Video URL", name: "youtubeUrl", widget: "string", required: false }
       - { label: "Body", name: "body", widget: "markdown" }
 
       - { label: "Content Type", name: "cmsType", widget: "hidden", default: "post" }
@@ -49,6 +50,7 @@ collections:
       - { label: "Description", name: "description", widget: "text" }
       - { label: "Tags", name: "tags", widget: "list", required: false }
       - { label: "Thumbnail", name: "thumbnail", widget: "image", required: false }
+      - { label: "YouTube Video URL", name: "youtubeUrl", widget: "string", required: false }
       - { label: "Body", name: "body", widget: "markdown" }
       - { label: "Content Type", name: "cmsType", widget: "hidden", default: "project" }
 
