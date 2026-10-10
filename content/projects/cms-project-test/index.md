@@ -11,14 +11,21 @@ tags:
   - Photoshop
 thumbnail: 0-0.png
 youtubeUrl: https://youtu.be/FiMOdJZ3SQ0
+gallery:
+  - 1.png
+  - 2.png
+  - 3.png
+  - 4.png
 cmsType: project
 ---
-![](1.png)
+![](5.png)
 
-![](2.png)
+![](6.png)
 
-![](3.png)
+![](7.png)
 
-![](4.png)
+![](8.png)
 
-![]()
+![](9.png)
+
+![](9-1.png)
