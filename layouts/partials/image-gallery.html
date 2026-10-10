@@ -1,0 +1,16 @@
+{{ with .Params.gallery }}
+    <div class="image-gallery">
+        {{ range . }}
+            {{ $imagePath := . }}
+            {{ $image := $.Resources.GetMatch $imagePath }}
+
+            {{ with $image }}
+                <img
+                    src="{{ .RelPermalink }}"
+                    alt="Gallery image"
+                    loading="lazy"
+                >
+            {{ end }}
+        {{ end }}
+    </div>
+{{ end }}

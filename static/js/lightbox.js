@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const images = document.querySelectorAll(".post-content img");
+    const images = document.querySelectorAll(".post-content img, .image-gallery img");
 
     const lightbox = document.createElement("div");
     lightbox.className = "image-lightbox";

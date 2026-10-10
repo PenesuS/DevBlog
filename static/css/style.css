@@ -879,3 +879,42 @@ footer p {
         border-radius: 8px;
     }
 }
+
+
+/* ========================================
+   Image Gallery
+======================================== */
+
+.image-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    margin: 40px 0;
+}
+
+.image-gallery img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: zoom-in;
+    transition: opacity 0.2s ease;
+}
+
+.image-gallery img:hover {
+    opacity: 0.85;
+}
+
+@media (max-width: 768px) {
+    .image-gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .image-gallery {
+        grid-template-columns: 1fr;
+    }
+}

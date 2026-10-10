@@ -51,6 +51,14 @@ collections:
       - { label: "Tags", name: "tags", widget: "list", required: false }
       - { label: "Thumbnail", name: "thumbnail", widget: "image", required: false }
       - { label: "YouTube Video URL", name: "youtubeUrl", widget: "string", required: false }
+      - label: "Gallery Images"
+        name: "gallery"
+        widget: "list"
+        required: false
+        field:
+          label: "Image"
+          name: "image"
+          widget: "image"
       - { label: "Body", name: "body", widget: "markdown" }
       - { label: "Content Type", name: "cmsType", widget: "hidden", default: "project" }
 

@@ -48,6 +48,8 @@
         {{ .Content }}
     </div>
 
+    {{ partial "image-gallery.html" . }}
+
     <div class="post-back">
         <a href="{{ "posts/" | relURL }}">
             ← Back to Development Logs
