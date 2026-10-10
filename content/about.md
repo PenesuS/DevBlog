@@ -33,6 +33,7 @@ a few technical art workflows, and environment development.
 * GitHub: https://github.com/PenesuS
 * LinkedIn: www.linkedin.com/in/suhyeok-lee-923980328
 * Artstation: https://suhyeoklee0817.artstation.com/
+* Phone: (1)416-771-6872
 
 ```
 
