@@ -10,6 +10,7 @@ tags:
   - Zbrush
   - Photoshop
 thumbnail: 0-0.png
+youtubeUrl: https://youtu.be/FiMOdJZ3SQ0
 cmsType: project
 ---
 ![](1.png)
