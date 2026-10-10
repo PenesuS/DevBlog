@@ -21,5 +21,3 @@ cmsType: project
 ![](4.png)
 
 ![]()
-
-<https://www.youtube.com/watch?v=FiMOdJZ3SQ0>
