@@ -1,8 +1,8 @@
 ---
-title: "3D Environment : The Empire Palace"
+title: "3D Diorama : The Empire Palace"
 date: 2018-06-01T00:00:00.000-04:00
 draft: false
-description: This is my second 3D environment art made in 2018
+description: This is my second 3D diorama made in 2018
 tags:
   - UnrealEngine4
   - 3dsMax
